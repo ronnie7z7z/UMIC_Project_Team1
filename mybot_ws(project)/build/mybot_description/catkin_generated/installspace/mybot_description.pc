@@ -1,0 +1,8 @@
+prefix=/home/ronnie7z/mybot_ws/install
+
+Name: mybot_description
+Description: Description of mybot_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
