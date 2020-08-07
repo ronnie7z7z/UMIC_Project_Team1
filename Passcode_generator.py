@@ -87,28 +87,36 @@ def decrypt(img):
     code = img2
     return code
 
+def detect():
 
-letters = []
-for i in range(5):
-    image = cv.imread('./images/encrypted' + str(i+1) + '.png')
-    decrypted = decrypt(image)
-    image = Image.fromarray(decrypted)
-    letters.append(recognize_letter(image))
-    
-sample = ''.join(sorted(letters))
+	letters = []
+	for i in range(5):
+	    image = cv.imread('./images/encrypted' + str(i+1) + '.png')
+	    decrypted = decrypt(image)
+	    image = Image.fromarray(decrypted)
+	    letters.append(recognize_letter(image))
+	    
+	sample = ''.join(sorted(letters))
+	return sample
 
 
-words = nltk.corpus.words.words('en')
+def makeword(sample):
+	words = nltk.corpus.words.words('en')
 
-anagrams = nltk.defaultdict(list)
-for word in words:
-    key = ''.join(sorted(word))
-    anagrams[key].append(word)
-passcodes = anagrams[sample]
-updated_passcodes = []
-for w in passcodes:
-    l = Counter([ss.pos() for ss in wn.synsets(w)])
-    if len(l) != 0:
-        updated_passcodes.append(w)
-print(updated_passcodes)
+	anagrams = nltk.defaultdict(list)
+	for word in words:
+	    key = ''.join(sorted(word))
+	    anagrams[key].append(word)
+	passcodes = anagrams[sample]
+	updated_passcodes = []
+	for w in passcodes:
+	    l = Counter([ss.pos() for ss in wn.synsets(w)])
+	    if len(l) != 0:
+	        updated_passcodes.append(w)
+	return updated_passcodes
+
+if __name__ == '__main__':
+	detected = detect()
+	passwords = makeword(detected)
+	print(passwords)
 
