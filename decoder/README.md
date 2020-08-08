@@ -5,7 +5,7 @@ of meaningful words from them.
 
 The [`Letter_recognizer.ipynb`](./Letter_recognizer.ipynb) contains the code for the CNN model which is trained on the [Alphabet_dataset](./Alphabet_dataset). The trained weights of the best model are saved in [`full_resnet18.pth`](./full_resnet18.pth) which are later used for prediction.
 
-[Images](./Images) contains certain sample cover images and their encrypted counterparts which encode a hidden letter image using steganography.
+[Images](./images) contains certain sample cover images and their encrypted counterparts which encode a hidden letter image using steganography.
 
 The [practice notebooks](./practice%20notebooks) folder contains certain trial notebooks with bits and pieces of code which were later integrated in Passcode_generator.
 
