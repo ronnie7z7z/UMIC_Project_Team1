@@ -34,15 +34,13 @@
       <minDepth value="0.0001" />
   </gazebo-->   
 
-  <!--gazebo>
+  <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
       <updateRate>10</updateRate>
-      <leftJoint>left_front_wheel_hinge</leftJoint>
-      <leftJoint>left_back_wheel_hinge</leftJoint>
-      <rightJoint>right_front_wheel_hinge</rightJoint>
-      <rightJoint>right_back_wheel_hinge</rightJoint>
+      <leftJoint>left_front_wheel_joint</leftJoint>
+      <rightJoint>right_front_wheel_joint</rightJoint>
       <wheelSeparation>0.06</wheelSeparation>
       <wheelDiameter>0.03</wheelDiameter>
       <torque>10</torque>
@@ -51,9 +49,26 @@
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
     </plugin>
-  </gazebo-->
+  </gazebo>
 
-<gazebo>
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>left_back_wheel_joint</leftJoint>
+      <rightJoint>right_back_wheel_joint</rightJoint>
+      <wheelSeparation>0.06</wheelSeparation>
+      <wheelDiameter>0.03</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>chassis</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+<!--gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>10.0</updateRate>
     <robotNamespace>/</robotNamespace>
@@ -65,16 +80,18 @@
     <wheelDiameter>0.03</wheelDiameter>
     <robotBaseFrame>chassis</robotBaseFrame>
     <torque>10</torque>
-    <MaxForce>1.0</MaxForce>
     <topicName>cmd_vel</topicName>
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
+    <odometryRate>100.0</odometryRate>
+    <publishTF>true</publishTF>
     <broadcastTF>false</broadcastTF>
-    <covariance_x>0.001</covariance_x> <!-- 0.0001 -->
-    <covariance_y>0.001</covariance_y> <!-- 0.0001 -->
-    <covariance_yaw>0.01</covariance_yaw> <!-- 0.01 -->
+    <covariance_x>0.001</covariance_x> 
+    <covariance_y>0.001</covariance_y> 
+    <covariance_yaw>0.01</covariance_yaw> 
+    <robotBaseFrame>chassis</robotBaseFrame>
   </plugin>
-</gazebo>
+</gazebo-->
 
 
   <gazebo reference="chassis">
