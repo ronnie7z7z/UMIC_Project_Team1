@@ -13,13 +13,19 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin/catkin_generated/version/package.cmake"
   "catkin_generated/installspace/_setup_util.py"
   "catkin_generated/order_packages.cmake"
+  "mybot_control/catkin_generated/package.cmake"
   "mybot_description/catkin_generated/package.cmake"
   "mybot_gazebo/catkin_generated/package.cmake"
+  "mybot_navigation/catkin_generated/package.cmake"
   "/home/ronnie7z/mybot_ws/src/CMakeLists.txt"
+  "/home/ronnie7z/mybot_ws/src/mybot_control/CMakeLists.txt"
+  "/home/ronnie7z/mybot_ws/src/mybot_control/package.xml"
   "/home/ronnie7z/mybot_ws/src/mybot_description/CMakeLists.txt"
   "/home/ronnie7z/mybot_ws/src/mybot_description/package.xml"
   "/home/ronnie7z/mybot_ws/src/mybot_gazebo/CMakeLists.txt"
   "/home/ronnie7z/mybot_ws/src/mybot_gazebo/package.xml"
+  "/home/ronnie7z/mybot_ws/src/mybot_navigation/CMakeLists.txt"
+  "/home/ronnie7z/mybot_ws/src/mybot_navigation/package.xml"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"
   "/opt/ros/melodic/share/catkin/cmake/all.cmake"
   "/opt/ros/melodic/share/catkin/cmake/assert.cmake"
@@ -149,8 +155,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mybot_control/CMakeFiles/CMakeDirectoryInformation.cmake"
   "mybot_description/CMakeFiles/CMakeDirectoryInformation.cmake"
   "mybot_gazebo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mybot_navigation/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -164,5 +172,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "gtest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "gtest/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "mybot_description/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake"
+  "mybot_control/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake"
   )
