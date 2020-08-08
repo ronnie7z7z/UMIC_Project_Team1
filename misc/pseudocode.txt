@@ -13,3 +13,15 @@ for obstacle detected:
             continue
          else:
             follow, this is a wall
+
+
+# the 'follow' function
+align cmd_vel (wrt map) along wall, angular velocity compulsorily zero except while turning
+publish information about first turn
+for every few metres:
+   capture pictures on the wall if any
+   if exit is found:
+      if no. pictures captured<5:
+          add to map, continue
+      else:
+          proceed to exit to go to maze
