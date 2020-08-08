@@ -1,0 +1,15 @@
+#pseudo code 
+for obstacle detected:
+   if obstacle has round surface or has visible convex corner:
+      avoid
+      continue
+    if obstacle has visible concave corner:
+      follow
+    elif obstacle has edge:
+      start following
+      if first turn:
+         if linear and angular in different sense: #ex:linear left angular clockwise
+            avoid, this is a convex corner of an obstacle
+            continue
+         else:
+            follow, this is a wall
