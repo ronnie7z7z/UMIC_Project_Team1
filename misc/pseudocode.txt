@@ -24,4 +24,9 @@ for every few metres:
       if no. pictures captured<5:
           add to map, continue
       else:
-          proceed to exit to go to maze
+          receive validation from image processing team if photos have been correctly captured
+          if validated:
+             proceed to exit to go to maze
+          else:
+             add exit to map
+             go to start location and follow again
