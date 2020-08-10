@@ -7,3 +7,4 @@ sudo killall roscore
 sudo killall rosmaster
 
 roslaunch mybot_gazebo mybot_world.launch
+roslaunch mybot_control myrobot_control.launch

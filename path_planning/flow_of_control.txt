@@ -1,9 +1,0 @@
-this doc is meant to be a brief summary of how the files could be allocated and launched. 
-1. the mybot_slam.launch file is assumed to be in mybot_navigation/launch (just a possibility). this file includes important files for launching like mybot_world in the mybot_gazebo package, joint publisher,etc and whichever rviz file is to be used. launching this should cause the robot to be spawned in gazebo, and rviz to be launched. it also sets up nodes for gmapping, move_base and explore for slam
-
-2.the exploration.yaml file is assumed to reside in mybot_navigation/config. this supplies parameters to the mybot_slam.launch file for appropriate functioning of the explore node
-
-3.the python files room_solve.py, orient.py and wall_follower.py are assumed to be in mybot_navigation/launch. these files are the custom files for the bot to carry out its specific functions. 
-
-launching and working (no guarantee of param 2)
-first the mybot_slam.launch is roslaunched to set up the slam, then python room_solve.py is run in another terminal. expected outcome is that the bot would follow along the walls then after one round is completed proceed to what it 'thinks' is the exit. room_solve is meant to start the bot from the random position and make it reach a wall, the Orient class with argument 0 is instantiated whereby the bot should ideally orient itself to have the wall(or whatever obstacle it ends up thinking is the wall) along the left hand side. the WallFollower class instantiated takes the bot straight forward to the obstacle right in front. the Orient class arg 1 is instantiated which supposedly checks while turning if indeed the obstacle encountered first was a wall. the wall follower object also has a parameter that stores a potential exit point. after wall follower is called 3 more times, the 'best' exit is chosen and the bot tries to move toward it.
