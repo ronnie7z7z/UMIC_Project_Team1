@@ -19,8 +19,8 @@ class WallFollower():
 		self.sub1=rospy.Subscriber("/mybot/amcl/amcl_pose",PoseWithCovarianceStamped,self.cb)
 		self.sub=rospy.Subscriber("/mybot/laser/scan",LaserScan,self.callback)
 		self.finish=False
-		self.exit=None #a two-tuple to hold coordinates of a potential exit point
-        self.exitrange=None #the distance from the potential exit point
+		self.exit=None
+		#a two-tuple to hold coordinates of a potential exit point
 
 	def cb(self,data):
 		self.x=data.pose.pose.position.x
@@ -31,10 +31,11 @@ class WallFollower():
 		x=msg.ranges[i]-self.x #coordinates of the point directly ahead wrt map frame
 		y=-self.y #the y coordinate of the point straight ahead in bot frame is 0
 		max_range=max(msg.ranges)
-		ma=msg.angle_min+msg.ranges.index(max_range)*msg.angle_increment#angle along which maximum range occurs
-        if ma<0:#this corresponds to the exit only if it lies on the wall, i.e., to the left
-        	self.exit=(max_range*math.cos(ma)-self.x,msg.-max_range*math.sin(ma)+self.y)#potential exit point
-        	self.exitrange=max_range #range of the potential exit point
+		ma=msg.angle_min+(msg.ranges).index(max_range)*(msg.angle_increment)
+		#angle along which maximum range occurs
+		if ma<0:
+			self.exit=(max_range*math.cos(ma)-self.x,msg.self.y-max_range*math.sin(ma))
+			#this corresponds to the exit only if it lies on the wall, i.e., to the left
 
 		ac = actionlib.SimpleActionClient("move_base", MoveBaseAction) #these few lines of code have been copied as is
 		#define a client for to send goal requests to the move_base server through a SimpleActionClient
@@ -57,7 +58,7 @@ class WallFollower():
 			
 if __name__ == '__main__':
     try:
-        WallFollower()
+        w=WallFollower()
         rospy.spin()
 
     except rospy.ROSInterruptException:
