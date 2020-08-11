@@ -10,6 +10,6 @@
 export CMAKE_PREFIX_PATH="/home/ronnie7z/mybot_ws/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/ronnie7z/mybot_ws/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/ronnie7z/mybot_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/ronnie7z/mybot_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ronnie7z/mybot_ws/devel/share/common-lisp"
+export PWD='/home/ronnie7z/mybot_ws/build'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/ronnie7z/mybot_ws/devel/share/common-lisp'
 export ROS_PACKAGE_PATH="/home/ronnie7z/mybot_ws/src:$ROS_PACKAGE_PATH"

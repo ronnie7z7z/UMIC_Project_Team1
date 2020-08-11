@@ -1,0 +1,32 @@
+#pseudo code 
+for obstacle detected:
+   if obstacle has round surface or has visible convex corner:
+      avoid
+      continue
+    if obstacle has visible concave corner:
+      follow
+    elif obstacle has edge:
+      start following
+      if first turn:
+         if linear and angular in different sense: #ex:linear left angular clockwise
+            avoid, this is a convex corner of an obstacle
+            continue
+         else:
+            follow, this is a wall
+
+
+# the 'follow' function
+align cmd_vel (wrt map) along wall, angular velocity compulsorily zero except while turning
+publish information about first turn
+for every few metres:
+   capture pictures on the wall if any
+   if exit is found:
+      if no. pictures captured<5:
+          add to map, continue
+      else:
+          receive validation from image processing team if photos have been correctly captured
+          if validated:
+             proceed to exit to go to maze
+          else:
+             add exit to map
+             go to start location and follow again
