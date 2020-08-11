@@ -61,6 +61,32 @@
 
     </link>
 
+      <link name="stand">
+
+     	<xacro:box_inertia m="5" x="0.03" y="0.03" z="0.09"/>
+
+        <visual name="chassis_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.03 0.03 0.09"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+
+        <collision name='collision'>
+            <geometry>
+                <box size="0.03 0.03 0.09"/>
+            </geometry>
+        </collision>
+
+    </link>
+ 
+  <joint name="stand_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="stand"/>
+    <origin xyz="0 0 0.05"/>
+  </joint>
+
     <link name="left_front_wheel">
 
         <collision name="collision">
@@ -77,7 +103,7 @@
             </geometry>   
         </visual>
 
-        <xacro:cylinder_inertia m="0.5" r="0.015" h="0.01"/>
+        <xacro:cylinder_inertia m="1" r="0.015" h="0.01"/>
     </link>
 
     <link name="left_back_wheel">
@@ -96,7 +122,7 @@
             </geometry>   
         </visual>
 
-        <xacro:cylinder_inertia m="0.5" r="0.015" h="0.01"/>
+        <xacro:cylinder_inertia m="1" r="0.015" h="0.01"/>
     </link>
 
     <link name="right_front_wheel">
@@ -115,7 +141,7 @@
             </geometry>   
         </visual>
 
-        <xacro:cylinder_inertia m="0.5" r="0.015" h="0.01"/>
+        <xacro:cylinder_inertia m="1" r="0.015" h="0.01"/>
     </link>
 
     <link name="right_back_wheel">
@@ -134,7 +160,7 @@
             </geometry>   
         </visual>
 
-        <xacro:cylinder_inertia m="0.5" r="0.015" h="0.01"/>
+        <xacro:cylinder_inertia m="1" r="0.015" h="0.01"/>
     </link>
 
     <joint type="continuous" name="left_front_wheel_joint">
@@ -143,7 +169,7 @@
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
         <limit effort="100" velocity="100"/>
-        <joint_properties damping="0.0" friction="0.0"/>
+        <joint_properties damping="1.0" friction="0.0"/>
     </joint>
 
     <joint type="continuous" name="left_back_wheel_joint">
@@ -152,7 +178,7 @@
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
         <limit effort="100" velocity="100"/>
-        <joint_properties damping="0.0" friction="0.0"/>
+        <joint_properties damping="1.0" friction="0.0"/>
     </joint>
 
     <joint type="continuous" name="right_front_wheel_joint">
@@ -161,7 +187,7 @@
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
         <limit effort="100" velocity="100"/>
-        <joint_properties damping="0.0" friction="0.0"/>
+        <joint_properties damping="1.0" friction="0.0"/>
     </joint>
 
     <joint type="continuous" name="right_back_wheel_joint">
@@ -170,7 +196,7 @@
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
         <limit effort="100" velocity="100"/>
-        <joint_properties damping="0.0" friction="0.0"/>
+        <joint_properties damping="1.0" friction="0.0"/>
     </joint>
 
 
@@ -209,7 +235,7 @@
 
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0 0 0.02" rpy="0 0 0"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="hokuyo"/>
   </joint>
