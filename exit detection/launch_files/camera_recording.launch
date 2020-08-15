@@ -1,0 +1,6 @@
+<launch>
+ <node pkg="image_view" name="video_record_camera1" type="video_recorder" respawn="false">
+  <remap from="image" to="mybot/camera1/image_raw"/>
+  <param name="filename" value="$(find mybot_navigation)/recording/recording.avi"/>
+ </node>
+</launch>
