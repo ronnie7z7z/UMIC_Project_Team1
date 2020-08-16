@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- My Package launch file -->
+<node pkg="ch_171744_maze" type="maze.py" name="MazeSolverNode" output="screen">
+</node>
+
+
+</launch>
