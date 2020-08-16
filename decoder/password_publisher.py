@@ -13,7 +13,6 @@ from nltk.corpus import wordnet as wn
 from collections import Counter
 import rospy
 from std_msgs.msg import String
-import time
 
 #Using GPU
 if torch.cuda.is_available():
@@ -127,7 +126,6 @@ if __name__ == '__main__':
   for password in passwords:
     print(password)
     pub.publish(password)
-    time.sleep(5.0)
     feedback=input('result: ')
     if feedback =='success':
       os.system('rosnode kill --all')
