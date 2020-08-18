@@ -93,8 +93,9 @@ def detect():
   letters = []
   for i in range(5):
       image = cv.imread('./images/encrypted' + str(i+1) + '.png')
-      decrypted = decrypt(image)
-      image = Image.fromarray(decrypted)
+      decrypted = decrypt(image) # hash this out
+      image = Image.fromarray(decrypted) # hash this out
+      # image = Image.fromarray(image) # ? possible correction
       letters.append(recognize_letter(image))
       
   sample = ''.join(sorted(letters))
