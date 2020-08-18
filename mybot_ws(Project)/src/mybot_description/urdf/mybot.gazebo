@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <robot>
 
+  <!--gazebo>
+	<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		<robotNamespace>/myrobot</robotNamespace>
+	</plugin>
+  </gazebo-->
+
   <gazebo reference="left_front_wheel_joint">
       <mu1 value="10000.0" />
       <mu2 value="10000.0" />
@@ -44,10 +50,10 @@
       <wheelSeparation>0.06</wheelSeparation>
       <wheelDiameter>0.03</wheelDiameter>
       <wheelAcceleration>0.04</wheelAcceleration> 
-      <wheelTorque>10</wheelTorque> 
-      <commandTopic>cmd_vel</commandTopic>
       <publishWheelTF>true</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
+      <wheelTorque>10</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
@@ -64,10 +70,10 @@
       <wheelSeparation>0.06</wheelSeparation>
       <wheelDiameter>0.03</wheelDiameter>
       <wheelAcceleration>0.04</wheelAcceleration> 
-      <wheelTorque>10</wheelTorque> 
-      <commandTopic>cmd_vel</commandTopic>
       <publishWheelTF>true</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
+      <wheelTorque>10</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
@@ -133,9 +139,9 @@
 
   <!-- hokuyo -->
   <gazebo reference="hokuyo">
-    <sensor type="ray" name="head_hokuyo_sensor">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
@@ -161,7 +167,7 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
         <topicName>/mybot/laser/scan</topicName>
         <frameName>hokuyo</frameName>
       </plugin>
