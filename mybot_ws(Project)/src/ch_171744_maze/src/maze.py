@@ -17,10 +17,10 @@ class MazeSolver:
         rospy.init_node('MazeSolverNode')
         self.rate = rospy.Rate(10)
 
-        rospy.Subscriber('/laserscan', LaserScan, self.laserscan_callback)
+        rospy.Subscriber('/mybot/laser/scan', LaserScan, self.laserscan_callback)
         rospy.Subscriber('/odom', Odometry, self.odom_callback)
 
-        self.velPub = rospy.Publisher('/mobile_base/commands/velocity', Twist, queue_size = 5)
+        self.velPub = rospy.Publisher('cmd_vel', Twist, queue_size = 5)
 
         self.vel = Twist()
         self.laser = None
