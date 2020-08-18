@@ -41,7 +41,7 @@
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
   <link name="chassis">
-        <pose>0 0 0.1 0 0 0</pose>
+        <pose>0 0 0.2 0 0 0</pose>
 
      	<xacro:box_inertia m="10" x="0.1" y="0.05" z="0.02"/>
 
@@ -60,32 +60,6 @@
         </collision>
 
     </link>
-
-      <link name="stand">
-
-     	<xacro:box_inertia m="5" x="0.03" y="0.03" z="0.09"/>
-
-        <visual name="chassis_visual">
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-            <geometry>
-                <box size="0.03 0.03 0.09"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-
-        <collision name='collision'>
-            <geometry>
-                <box size="0.03 0.03 0.09"/>
-            </geometry>
-        </collision>
-
-    </link>
- 
-  <joint name="stand_joint" type="fixed">
-    <parent link="chassis"/>
-    <child link="stand"/>
-    <origin xyz="0 0 0.05"/>
-  </joint>
 
     <link name="left_front_wheel">
 
@@ -198,8 +172,44 @@
         <limit effort="100" velocity="100"/>
         <joint_properties damping="1.0" friction="0.0"/>
     </joint>
-
-
+    
+    <!--experiment-->
+    <!--transmission name="front_right_wheel_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="front_right_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="right_front_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="back_right_wheel_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="back_right_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="right_back_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="front_left_wheel_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="front_left_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_front_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="back_left_wheel_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="back_left_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_back_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission-->
 
   <link name="camera">
     <collision>
@@ -235,7 +245,7 @@
 
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <origin xyz="0 0 0.02" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="hokuyo"/>
   </joint>
@@ -245,7 +255,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-    <box size="0.01 0.01 0.01"/>
+    <box size="0.01 0.01 0.02"/>
       </geometry>
     </collision>
 
@@ -259,7 +269,7 @@
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.01" />
     </inertial>
   </link>
 

@@ -12,9 +12,13 @@
     args="joint_state_controller
       mobile_base_controller"
   />
-
+  <rosparam file="$(find mybot_control)/config/mybot_control.yaml" command="load"/>
+   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+    <!--param name="robot_description" command="$(find xacro)/xacro.py '$(find mb)/urdf/mb.xacro'"/-->
+  </node>
   <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="false" output="screen">
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
     <remap from="/joint_states" to="/mybot/joint_states" />
   </node>
