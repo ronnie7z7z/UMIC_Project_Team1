@@ -1,0 +1,15 @@
+<launch>
+    <arg name="recognize" default="true"/>
+
+    <!--include file="$(find mybot_gazebo)/launch/mybot_world.launch"/-->
+
+    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+        <remap from="image" to="/mybot/camera1/image_raw"/>
+        <param name="gui" value="true" type="bool"/>
+        <param name="subscribe_depth" value="false" type="bool"/>
+        <param name="object_prefix" value="object" type="str"/>
+        <param name="objects_path" value="$(find mybot_navigation)/image_rec/"/>
+        <param name="settings_path" value="~/.ros/find_object_2d.ini" type="str"/>
+    </node>
+
+</launch>
