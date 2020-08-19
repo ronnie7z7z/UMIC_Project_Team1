@@ -1,0 +1,14 @@
+material exit/Diffuse
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture exit.jpg
+            }
+        }
+    }
+}

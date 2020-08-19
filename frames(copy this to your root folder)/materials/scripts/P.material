@@ -1,0 +1,14 @@
+material LetterP/Diffuse
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture P.jpg
+            }
+        }
+    }
+}
