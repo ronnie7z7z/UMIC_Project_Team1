@@ -38,6 +38,6 @@
     <remap from="scan" to="/scan"/>
   </node-->
   <!--include file="$(find mybot_navigation)/launch/camera_recording.launch"/-->
-  <!--include file="$(find mybot_control)/launch/myrobot_control.launch"/-->
-  <!--include file="$(find mybot_navigation)/launch/gmapping_demo.launch"/-->
+  <include file="$(find mybot_control)/launch/myrobot_control.launch"/>
+  <include file="$(find mybot_navigation)/launch/gmapping_demo.launch"/>
 </launch>
