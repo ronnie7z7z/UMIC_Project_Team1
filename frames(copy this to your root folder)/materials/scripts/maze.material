@@ -1,0 +1,14 @@
+material maze/Diffuse
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture maze.jpg
+            }
+        }
+    }
+}
