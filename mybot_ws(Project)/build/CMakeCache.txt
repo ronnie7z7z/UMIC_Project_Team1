@@ -288,6 +288,12 @@ _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 
 //Value Computed by CMake
+ch_171744_maze_BINARY_DIR:STATIC=/home/ronnie7z/mybot_ws/build/ch_171744_maze
+
+//Value Computed by CMake
+ch_171744_maze_SOURCE_DIR:STATIC=/home/ronnie7z/mybot_ws/src/ch_171744_maze
+
+//Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/ronnie7z/mybot_ws/build/gtest/googlemock
 
 //Dependencies for the target
@@ -337,6 +343,12 @@ gtest_hide_internal_symbols:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //Value Computed by CMake
+maze_solver_BINARY_DIR:STATIC=/home/ronnie7z/mybot_ws/build/maze_solver
+
+//Value Computed by CMake
+maze_solver_SOURCE_DIR:STATIC=/home/ronnie7z/mybot_ws/src/maze_solver
+
+//Value Computed by CMake
 mybot_control_BINARY_DIR:STATIC=/home/ronnie7z/mybot_ws/build/mybot_control
 
 //Value Computed by CMake
@@ -359,6 +371,9 @@ mybot_navigation_BINARY_DIR:STATIC=/home/ronnie7z/mybot_ws/build/mybot_navigatio
 
 //Value Computed by CMake
 mybot_navigation_SOURCE_DIR:STATIC=/home/ronnie7z/mybot_ws/src/mybot_navigation
+
+//The directory containing a CMake configuration file for rospy.
+rospy_DIR:PATH=/opt/ros/melodic/share/rospy/cmake
 
 
 ########################
@@ -470,7 +485,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -1,2 +1,2 @@
-mybot_control:mybot_description:mybot_gazebo:mybot_navigation
+maze_solver:mybot_control:mybot_description:mybot_gazebo:mybot_navigation
 -DCATKIN_DEVEL_PREFIX=/home/ronnie7z/mybot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ronnie7z/mybot_ws/install -G Unix Makefiles

@@ -40,6 +40,24 @@
       <minDepth value="0.0001" />
   </gazebo>   
 
+<!--gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>left_front_wheel_joint</leftFrontJoint>
+    <rightFrontJoint>right_front_wheel_joint</rightFrontJoint>
+    <leftRearJoint>left_back_wheel_joint</leftRearJoint>
+    <rightRearJoint>right_back_wheel_joint</rightRearJoint>
+    <wheelSeparation>0.06</wheelSeparation>
+    <wheelDiameter>0.03</wheelDiameter>
+    <wheelAcceleration>0.04</wheelAcceleration>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>10</torque>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>false</broadcastTF>
+  </plugin>
+</gazebo-->
+
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
@@ -141,7 +159,7 @@
   <gazebo reference="hokuyo">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
@@ -153,7 +171,7 @@
           </horizontal>
         </scan>
         <range>
-          <min>0.10</min>
+          <min>0.02</min>
           <max>3.0</max>
           <resolution>0.01</resolution>
         </range>
