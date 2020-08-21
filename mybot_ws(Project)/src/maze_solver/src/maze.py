@@ -15,7 +15,7 @@ class MazeSolver:
 
     def __init__(self):
         rospy.init_node('MazeSolverNode')
-        self.rate = rospy.Rate(10)
+        self.rate = rospy.Rate(50)
 
         rospy.Subscriber('/mybot/laser/scan', LaserScan, self.laserscan_callback)
         rospy.Subscriber('/odom', Odometry, self.odom_callback)
@@ -39,20 +39,20 @@ class MazeSolver:
         # set up wall follower
         self.leftHand = True            # True, if the robot uses the left sensor for wall follow
         self.laserIndex = 359           # left laser index
-        self.turnSpeed = -0.3
-        self.distanceToWall = 0.4       # distance from the wall to the robot and min distance for obstacles detection
+        self.turnSpeed = -0.4
+        self.distanceToWall = 0.15       # distance from the wall to the robot and min distance for obstacles detection
         self.angle = 1.57               # around 90 degree
         self.minLasersSide = [150,170]  # lasers used for basic obstacles detection
         self.mutex = Lock()
 
         # set up PID
-        kp = 6
-        ki = 2
-        kd = 1.5
+        kp = 4
+        ki = 0.01
+        kd = 10
         outMin = -0.4
         outMax = 0.4
-        iMin = -0.4
-        iMax = 0.4
+        iMin = -0.05
+        iMax = 0.05
         self.pid = PID(kp, ki, kd, outMin, outMax, iMin, iMax)
 
         # actual drive state (initial: WallDetection)
@@ -99,7 +99,7 @@ class MazeSolver:
                             self.rotate_angle(self.angle, self.turnSpeed)
                             self.driveState = "WallFollow"
                         else:
-                            self.vel.linear.x = 0.3
+                            self.vel.linear.x = 0.1
                             self.vel.angular.z = 0.0
                 elif(self.driveState == "WallFollow"):
                     if(self.mutex.locked() == False):
@@ -168,11 +168,11 @@ class MazeSolver:
         # obstacle in front of the robot
         if(actMinLaserValue < self.distanceToWall):
             self.rotate_angle(self.angle, self.turnSpeed)
-        elif(pidValue == 0):
-            self.vel.linear.x = 0.3
+        elif(pidValue>0):
+            self.vel.linear.x = 0.05
             self.vel.angular.z = 0.0
         elif(pidValue != 0):
-            self.vel.linear.x = 0.15
+            self.vel.linear.x = 0.03
             self.vel.angular.z = pidValue
 
     # simple rotation function by the relativ angle in rad
