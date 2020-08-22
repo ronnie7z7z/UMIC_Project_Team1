@@ -47,16 +47,16 @@ class MazeSolver:
 
         # set up PID
         kp = 7
-        ki = 0
-        kd = 100
+        ki = 2
+        kd = 4000
         outMin = -0.5
         outMax = 0.5
-        iMin = -0.1
+        iMin = -0.01
         iMax = 0.01
         self.pid = PID(kp, ki, kd, outMin, outMax, iMin, iMax)
 
-        # actual drive state (initial: WallFollow)
-        self.driveState = "WallFollow"
+        # actual drive state (initial: WallDetection)
+        self.driveState = "WallDetection"
 
     def odom_callback(self, odom_msg):
         self.odom = odom_msg
@@ -99,7 +99,7 @@ class MazeSolver:
                             self.rotate_angle(self.angle, self.turnSpeed)
                             self.driveState = "WallFollow"
                         else:
-                            self.vel.linear.x = 0.07
+                            self.vel.linear.x = 0.06
                             self.vel.angular.z = 0.0
                 elif(self.driveState == "WallFollow"):
                     if(self.mutex.locked() == False):
@@ -121,7 +121,7 @@ class MazeSolver:
     def wallDetection(self, actMinLaserValue):
         self.mutex2.acquire()
         try:
-            if(actMinLaserValue < self.distanceToWall):
+            if(actMinLaserValue < self.distanceToWall+0.1):
                 self.rotate_angle(self.angle, self.turnSpeed)
             else:
                 # search for a wall to follow
@@ -166,7 +166,7 @@ class MazeSolver:
             pidValue = pidValue * (-1)
 
         # obstacle in front of the robot
-        if(actMinLaserValue < self.distanceToWall+0.03):
+        if(actMinLaserValue < self.distanceToWall):
             self.rotate_angle(self.angle, self.turnSpeed)
         elif(pidValue==0):
             self.vel.linear.x = 0.05
