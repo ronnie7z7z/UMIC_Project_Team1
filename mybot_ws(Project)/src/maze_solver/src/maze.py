@@ -46,17 +46,17 @@ class MazeSolver:
         self.mutex = Lock()
 
         # set up PID
-        kp = 5
+        kp = 7
         ki = 0
-        kd = 10
+        kd = 100
         outMin = -0.5
         outMax = 0.5
         iMin = -0.1
         iMax = 0.01
         self.pid = PID(kp, ki, kd, outMin, outMax, iMin, iMax)
 
-        # actual drive state (initial: WallDetection)
-        self.driveState = "WallDetection"
+        # actual drive state (initial: WallFollow)
+        self.driveState = "WallFollow"
 
     def odom_callback(self, odom_msg):
         self.odom = odom_msg
