@@ -24,12 +24,13 @@ class Recognizer():
 
 			#trigger 1 : start of maze
 			if id==3:
-				print("approaching maze")
-				self.maze='yes'
 				time.sleep(10.0)
-				os.system('rosnode kill /slam_gmapping /amcl')
-				os.system('rosnode kill /explore /move_base /gmapping_node ')
-				os.system('roslaunch  ch_171744_maze start_maze.launch')
+				if self.maze=='no':
+					print("approaching maze")
+					os.system('rosnode kill /slam_gmapping /amcl /image_converter')
+					os.system('rosnode kill /explore /move_base /gmapping_node ')
+					os.system('roslaunch  ch_171744_maze start_maze.launch')
+				self.maze='yes'
 
 			elif id==4:
 				if self.maze=='no':
