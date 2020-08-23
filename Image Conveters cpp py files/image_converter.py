@@ -66,7 +66,7 @@ def getContours(img, imgContour, imgCopy,imgBlur, i):
 class image_converter:
 
   def __init__(self,I):
-    rospy.init_node('image_converter', anonymous=True)
+    rospy.init_node('image_converter', anonymous=False)
     self.bridge = CvBridge()
     self.image_sub = rospy.Subscriber("/mybot/camera1/image_raw",Image,self.callback)
     self.image=None
