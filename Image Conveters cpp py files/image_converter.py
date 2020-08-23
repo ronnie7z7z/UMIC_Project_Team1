@@ -53,10 +53,10 @@ def getContours(img, imgContour, imgCopy,imgBlur, i):
     area = cv2.contourArea(cnt)
     areaMin = 2000
     if area>areaMin and area<10000 and ar>0.7 and ar<3:
-      cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
-      cv2.rectangle(imgContour, (x,y), (x+w, y+h), (0,255,0), 5)
       ROI = imgCopy[y:y+h, x:x+w]
       if (hsv(ROI))>8000:
+        cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
+        cv2.rectangle(imgContour, (x,y), (x+w, y+h), (0,255,0), 5)
         cv2.imwrite("{}.png".format(i), ROI)
         i+=1
        #images.append([hsv(imgBlur),ROI])
