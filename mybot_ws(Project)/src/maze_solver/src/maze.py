@@ -47,8 +47,8 @@ class MazeSolver:
 
         # set up PID
         kp = 7
-        ki = 1
-        kd = 4000
+        ki = 0
+        kd = 4
         outMin = -0.5
         outMax = 0.5
         iMin = -0.01
@@ -99,7 +99,7 @@ class MazeSolver:
                             self.rotate_angle(self.angle, self.turnSpeed)
                             self.driveState = "WallFollow"
                         else:
-                            self.vel.linear.x = 0.06
+                            self.vel.linear.x = 0.05
                             self.vel.angular.z = 0.0
                 elif(self.driveState == "WallFollow"):
                     if(self.mutex.locked() == False):
