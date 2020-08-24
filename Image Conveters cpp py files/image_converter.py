@@ -24,7 +24,7 @@ cv2.createTrackbar("Area", "Parameters", 2000, 30000, empty)
 '''
 #images=[]
 current_directory = os.getcwd()
-final_directory = os.path.join(current_directory, r'saved_images1')
+final_directory = os.path.join(current_directory, r'saved_images')
 if not os.path.exists(final_directory):
   os.makedirs(final_directory)
 os.chdir(final_directory)
@@ -54,13 +54,12 @@ def getContours(img, imgContour, imgCopy,imgBlur, i):
     areaMin = 2000
     if area>areaMin and area<10000 and ar>0.7 and ar<3:
       ROI = imgCopy[y:y+h, x:x+w]
+      print(hsv(ROI))
       if (hsv(ROI))>8000:
         cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
         cv2.rectangle(imgContour, (x,y), (x+w, y+h), (0,255,0), 5)
-        cv2.imwrite("{}.png".format(i), ROI)
+        cv2.imwrite("{}.png".format(i+1), ROI)
         i+=1
-       #images.append([hsv(imgBlur),ROI])
-      #cv2.imwrite("{}.png".format(i), ROI)
   return i
 
 class image_converter:
