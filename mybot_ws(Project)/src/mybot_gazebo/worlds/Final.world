@@ -2237,7 +2237,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.4 0.010204 0.4</size>
+              <size>0.4 0.010204 0.7</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2290,7 +2290,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.4 0.010204 0.4</size>
+              <size>0.4 0.010204 0.7</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2343,7 +2343,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.4 0.010204 0.4</size>
+              <size>0.4 0.010204 0.7</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2396,7 +2396,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.4 0.010204 0.4</size>
+              <size>0.4 0.010204 0.7</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2449,7 +2449,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.4 0.010204 0.4</size>
+              <size>0.4 0.010204 0.7</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
