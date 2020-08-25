@@ -31,7 +31,7 @@ os.chdir(final_directory)
 def hsv(img):
   hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
   lower = np.array([0,0,60])
-  upper= np.array([255,50,180])
+  upper= np.array([255,20,180])
   mask = cv2.inRange(hsv, lower, upper)
   res = cv2.bitwise_and(img,img, mask= mask)
   cv2.imshow("res",res)
@@ -51,9 +51,10 @@ def getContours(img, imgContour, imgCopy,imgBlur, i):
     #cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
     area = cv2.contourArea(cnt)
     areaMin = 2000
-    if area>areaMin and area<13000 and ar>0.6 and ar<2:
+    if area>areaMin and area<10000 and ar>0.7 and ar<1.2:
       ROI = imgCopy[y:y+h, x:x+w]
-      if (hsv(ROI))>6000:
+      if (hsv(ROI))>10000:
+        print(hsv(ROI))
         cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
         cv2.rectangle(imgContour, (x,y), (x+w, y+h), (0,255,0), 5)
         cv2.imwrite("{}.png".format(i+1), ROI)
