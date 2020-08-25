@@ -31,7 +31,7 @@ os.chdir(final_directory)
 def hsv(img):
   hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
   lower = np.array([0,0,60])
-  upper= np.array([255,90,180])
+  upper= np.array([255,50,180])
   mask = cv2.inRange(hsv, lower, upper)
   res = cv2.bitwise_and(img,img, mask= mask)
   cv2.imshow("res",res)
@@ -40,26 +40,27 @@ def hsv(img):
   
 def getContours(img, imgContour, imgCopy,imgBlur, i):
 
-  _,contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+  _,contours, hierarchy = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
   for cnt in contours:
 
     perimeter = cv2.arcLength(cnt, True)
     approx = cv2.approxPolyDP(cnt, 0.02*perimeter, True)
-    if len(approx)!=4:
-      continue
     (x,y,w,h) = cv2.boundingRect(approx)
-    ar = w/h
+    ar = float(w)/h
+    #cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
     area = cv2.contourArea(cnt)
     areaMin = 2000
-    if area>areaMin and area<10000 and ar>0.7 and ar<3:
+    if area>areaMin and area<13000 and ar>0.6 and ar<2:
       ROI = imgCopy[y:y+h, x:x+w]
-      print(hsv(ROI))
-      if (hsv(ROI))>8000:
+      if (hsv(ROI))>6000:
         cv2.drawContours(imgContour, cnt, -1, (255,0,255), 7)
         cv2.rectangle(imgContour, (x,y), (x+w, y+h), (0,255,0), 5)
         cv2.imwrite("{}.png".format(i+1), ROI)
         i+=1
+    #elif area>areaMin and area<13000 and ar<2:
+     # cv2.rectangle(imgContour, (x,y), (x+w, y+h), (255,0,0), 5)
+      #print(ar)
   return i
 
 class image_converter:
