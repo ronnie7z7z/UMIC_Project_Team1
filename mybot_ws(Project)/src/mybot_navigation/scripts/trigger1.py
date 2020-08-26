@@ -30,6 +30,7 @@ class Recognizer():
 					os.system('rosnode kill /slam_gmapping /amcl /image_converter')
 					os.system('rosnode kill /explore /move_base /gmapping_node ')
 					os.system('roslaunch  ch_171744_maze start_maze.launch')
+					os.system('python passcode_generator.py')
 				self.maze='yes'
 
 			elif id==4:
