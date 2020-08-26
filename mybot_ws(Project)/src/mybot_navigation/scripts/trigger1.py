@@ -29,7 +29,7 @@ class Recognizer():
 					print("approaching maze")
 					os.system('rosnode kill /slam_gmapping /amcl /image_converter')
 					os.system('rosnode kill /explore /move_base /gmapping_node ')
-					os.system('roslaunch  ch_171744_maze start_maze.launch')
+					os.system('roslaunch  maze_solver start_maze.launch')
 					os.system('python passcode_generator.py')
 				self.maze='yes'
 
@@ -38,6 +38,7 @@ class Recognizer():
 					pub.publish('invalid exit')
 				else:
 					self.exit='yes'
+					os.system('python trigger2.py')
 					pub.publish('exit')
 			else:
 				print('maze not reached yet')
