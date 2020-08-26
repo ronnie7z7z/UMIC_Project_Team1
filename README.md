@@ -4,7 +4,7 @@
 ### PREREQUISITE PACKAGES NEEDED
 1. PyTorch for ML implementation
 2. OpenCV for countour detection
-3. 
+3. ROS and Gazebo for simulation
 
 ## PROCEDURE
 
@@ -20,7 +20,9 @@
 
 1. ./run_world.sh
 2. ./run_add.sh
-3. ?
+3. roslaunch mybot_navigation move_base.launch
+4. python image_converter.py
+5. roslaunch mybot_gazebo mybot_trigger1.launch
 
 #### Wall Follower
 
@@ -32,4 +34,6 @@
 ## FINAL TESTING (ALL IN ONE)
 
 1. ./run_gazebo.sh
-2. 
+2.  roslaunch mybot_gazebo mybot_trigger1.launch
+3.  python image_converter.py
+4.  roslaunch mybot_navigation move_base.launch
