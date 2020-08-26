@@ -3,7 +3,8 @@
 
 ### PREREQUISITE PACKAGES NEEDED
 1. PyTorch for ML implementation
-2. ?
+2. OpenCV for countour detection
+3. 
 
 ## PROCEDURE
 
