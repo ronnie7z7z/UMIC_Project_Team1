@@ -15,14 +15,14 @@
 
 ### INDIVIDUAL ASPECT TESTING
 
-1. ./run_world.sh
-2. ./run_add.sh
-3. Flow Branches from this point onwards for different tests
-	A. Frontier Exploration + CV
-		a)
-	B. Wall Follower
-		a) Move the robot and orient it towards the passage in Gazebo
-		b) ./run_wf.sh  
+1- ./run_world.sh
+2- ./run_add.sh
+3- Flow Branches from this point onwards for different tests
+    A- Frontier Exploration + CV
+		a - 
+	B- Wall Follower
+		a - Move the robot and orient it towards the passage in Gazebo
+		b - ./run_wf.sh  
 
 ## FINAL TESTING
 
